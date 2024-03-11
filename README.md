@@ -5,7 +5,7 @@ MAC(Message authentication code) + secret key delivery with EC El-Gamal
 
 
 Before running the code install:  
-pip install bitarray
+pip install bitarray  
 pip install pycryptodone  
 
 The password of the data set is "12345"  
