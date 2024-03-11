@@ -1,4 +1,4 @@
-from CAST128.csat128 import cast128
+from CAST128.cast128 import cast128
 from CAST128.algorithm import *
 
 """

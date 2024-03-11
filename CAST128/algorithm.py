@@ -4,7 +4,7 @@ from CAST128.sboxes  import calculatingSboxOutput
 from bitarray import bitarray
 
 
-"""The Codes for encryption/decryption csat128 round include all methods in each round"""
+"""The Codes for encryption/decryption cast128 round include all methods in each round"""
 
 def roundsForAlgorithm(L, R, Km, Kr, numberOfRounds, encryptionOrDecryption):
     I = [None] * numberOfRounds
