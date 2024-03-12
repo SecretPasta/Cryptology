@@ -15,17 +15,17 @@ def generate_mac(padded_message):
         return mac_key, hmac_calculated.digest()
 
 
-def verify_mac(plaintext, mac, mac_key):
+def verify_mac(Dec_Data, mac, mac_key):
         if isinstance(mac_key, str):
             mac_key = mac_key.encode('utf-8')
-        if isinstance(plaintext, str):
-            plaintext = plaintext.encode('utf-8')
-        hmac_calculated = hmac.new(mac_key, plaintext, hashlib.sha256)
+        if isinstance(Dec_Data, str):
+            Dec_Data = Dec_Data.encode('utf-8')
+        hmac_calculated = hmac.new(mac_key, Dec_Data, hashlib.sha256)
         hmac_digest = hmac_calculated.digest()
-
+        print("Mac for the decrypted image:",hmac_digest)
         if hmac.compare_digest(mac, hmac_digest):
-            print("MAC verification successful.")
+            print("\nMAC verification successful.")
         else:
-            print("MAC verification failed.")
+            print("\nMAC verification failed.")
             
             

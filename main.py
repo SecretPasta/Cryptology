@@ -84,8 +84,12 @@ with open(decrypted_image_path, 'wb') as decrypted_image_file:
 
 print(f"\n>>> Decrypted image saved to {decrypted_image_path} <<<")
 
+# Generate the MAC for the original image (base64-encoded)
 mac_key, mac = generate_mac(image)
 print(f"\nMAC for the original image: {mac}\n")
 
-# Verify the MAC for the decrypted image
-verify_mac(decrypted_image, mac,mac_key)
+# Securely transmit mac_key to Bob along with the encrypted image and keys
+decrypted_image_base64 = base64.b64encode(decrypted_image_data).decode('utf-8')
+
+# Verify the MAC for the base64-encoded decrypted image
+verify_mac(decrypted_image_base64, mac, mac_key)
